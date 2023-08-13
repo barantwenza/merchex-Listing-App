@@ -2,10 +2,14 @@
 {% block content %}
 
 <h1>Bands</h1>
+    <a href="{% url 'band-create' %}">Create a new Band</a>
         <!-- TODO: list bands -->
         <ul>
-            {%for band in bands%}
-            <li>{{band.name}}</li>
-            {%endfor%}
+            {%for band in bands %}
+            
+            <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
+            - <a href="{% url 'band-update' band.id %}">[Edit]</a>
+            - <a href="{% url 'band-delete' band.id %}">[Delete]</a>
+            {% endfor %}
         </ul>
 {%endblock%}
