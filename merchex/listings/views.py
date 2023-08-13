@@ -12,14 +12,7 @@ def about(request):
 
 def listin(request):
     tit = TitlesBand.objects.all()
-    return HttpResponse(f"""<h1> Listings</h1>
-                            <p>Titles</p>
-                            <ul>
-                                <li>{tit[0].title}</li>
-                                <li>{tit[1].title}</li>
-                                <li>{tit[2].title}</li>
-                            </ul>
-                        """)
+    return render(request, 'listings/title.html', {'tit': tit})
 
 def contact(request):
     return HttpResponse('')
